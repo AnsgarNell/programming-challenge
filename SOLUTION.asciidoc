@@ -1,0 +1,53 @@
+= eXXcellent programming challenge
+Ansgar Nell
+:imagesdir: resources/
+
+This document explains briefly the solution implemented to resolve the weather programming challenge proposed by
+eXXcellent.
+
+
+== Architecture
+
+After reading the README document and understanding the given task, we can show the desired architecture in the
+following diagram:
+
+.System Architecture
+image::system-architecture.png[System Architecture]
+
+As we see, we can resume the whole desired system as consisting of a *Data Reader*, a *Data Parser* and a
+*Data Processor*:
+
+- *Data Reader*: The Data Reader is responsible for obtaining the raw data from different kind of sources.
+- *Data Parser*: The Data Parser gets the raw data provided by the Data Reader and extracts the relevant information
+from it.
+- *Data Processor*: Finally, the Data Processor gets the parsed data and after processing it outputs the desired
+results.
+
+
+=== Data Reader
+
+For both tasks, data will be read from a source. As this source can be of different types, we will provide an abstract
+Data Reader interface to operate with the other same level elements. This abstract class will underneath be implemented
+by three different classes, one for each different source (CSV file, JSON file and a Web Service). This is reflected
+in the next diagram:
+
+.Data Readers
+image::data-readers.png[Data Readers]
+
+
+=== Data Parser
+
+The raw data received from the *Data Reader* must be parsed depending on the assigned task. As these use different data
+types and formats, each must have an own *Data Parser* implementation.
+
+.Data Parsers
+image::data-parsers.png[Data Parsers]
+
+
+=== Data Processor
+
+The *Data Processor* will finally get the parsed data and calculate the desired results which will be output. Again,
+as both tasks require different calculations there will be two different implementations:
+
+.Data Processors
+image::data-processors.png[Data Processors]
