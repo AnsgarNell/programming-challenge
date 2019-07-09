@@ -5,8 +5,12 @@ public final class WeatherData {
 	private int day;
 	private double mxT;
 	private double mnT;
+	private double tSp = 0.0;
 	
 	public WeatherData() {
+		this.day = 0;
+		this.mxT = 0.0;
+		this.mnT = 0.0;
 	}
 	
 	public WeatherData(int day, double mxT, double mnT) {
@@ -32,6 +36,14 @@ public final class WeatherData {
 	}
 	public void setMnT(double mnT) {
 		this.mnT = mnT;
+	}
+	
+	public double getTsp() {
+		return tSp;
+	}
+	
+	public void calculateTemperatureSpread() {
+		this.tSp = this.mxT - this.mnT;
 	}
 
 }
