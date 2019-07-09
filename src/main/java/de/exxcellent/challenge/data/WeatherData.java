@@ -2,27 +2,33 @@ package de.exxcellent.challenge.data;
 
 public final class WeatherData {
 	
-	private int Day;
-	private double MxT;
-	private double MnT;
+	private int day;
+	private double mxT;
+	private double mnT;
+	
+	public WeatherData(int day, double mxT, double mnT) {
+		this.day = day;
+		this.mxT = mxT;
+		this.mnT = mnT;
+	}
 	
 	public int getDay() {
-		return Day;
+		return day;
 	}
 	public void setDay(int day) {
-		Day = day;
+		this.day = day;
 	}
 	public double getMxT() {
-		return MxT;
+		return mxT;
 	}
 	public void setMxT(double mxT) {
-		MxT = mxT;
+		this.mxT = mxT;
 	}
 	public double getMnT() {
-		return MnT;
+		return mnT;
 	}
 	public void setMnT(double mnT) {
-		MnT = mnT;
+		this.mnT = mnT;
 	}
 
 }
