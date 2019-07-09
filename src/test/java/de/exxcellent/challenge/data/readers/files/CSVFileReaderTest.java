@@ -41,14 +41,6 @@ class CSVFileReaderTest {
 	}
 	
 	@Test
-	void testCloseFile() throws NullPointerException, IOException  {
-		CSVFileReader instance = new CSVFileReader(WEATHER_FILE);
-		instance.openSource();
-		instance.closeSource();
-		// TODO: Must we or can we check this? We just call BufferedReader close() method.
-	}
-	
-	@Test
 	void testReadDataWithoutOpeningTheFile() throws IOException {
 		CSVFileReader instance = new CSVFileReader(WEATHER_FILE);
 		Assertions.assertThrows(NullPointerException.class, () -> {
