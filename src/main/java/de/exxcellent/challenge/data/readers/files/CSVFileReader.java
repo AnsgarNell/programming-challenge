@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class CSVFileReader extends ChallengeDataReader{
     
-    private static final String COMMA_DELIMITER = ";";
+    private static final String COMMA_DELIMITER = ",";
 	BufferedReader br;
 
     public CSVFileReader(String source) {
