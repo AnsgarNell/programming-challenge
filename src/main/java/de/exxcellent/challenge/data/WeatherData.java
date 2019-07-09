@@ -6,6 +6,9 @@ public final class WeatherData {
 	private double mxT;
 	private double mnT;
 	
+	public WeatherData() {
+	}
+	
 	public WeatherData(int day, double mxT, double mnT) {
 		this.day = day;
 		this.mxT = mxT;
