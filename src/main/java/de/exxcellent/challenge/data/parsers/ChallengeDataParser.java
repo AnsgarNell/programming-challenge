@@ -16,6 +16,6 @@ public abstract class ChallengeDataParser {
 	public abstract void parseRawData() throws Exception;
 	
 	public List<Object> getParsedData() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return parsedData;
 	}
 }
