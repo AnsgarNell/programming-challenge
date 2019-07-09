@@ -9,6 +9,8 @@ import de.exxcellent.challenge.data.readers.ChallengeDataReader;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,7 +19,8 @@ import java.util.List;
  */
 public class CSVFileReader extends ChallengeDataReader{
     
-    BufferedReader br;
+    private static final String COMMA_DELIMITER = ";";
+	BufferedReader br;
 
     public CSVFileReader(String source) {
         super(source);
@@ -25,17 +28,26 @@ public class CSVFileReader extends ChallengeDataReader{
 
     @Override
     public void openSource() throws FileNotFoundException {
-        BufferedReader br = new BufferedReader(new FileReader(source));
+        br = new BufferedReader(new FileReader(source));
     }
 
     @Override
-    public void readData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void readData() throws IOException, NullPointerException {
+    	String line;
+        while ((line = br.readLine()) != null) {
+            String[] values = line.split(COMMA_DELIMITER);
+            data.add(Arrays.asList(values));
+        }
     }
 
     @Override
     public List<List<String>> getData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return data;
     }
+
+	@Override
+	public void closeSource() throws IOException, NullPointerException {
+		br.close();
+	}
     
 }
