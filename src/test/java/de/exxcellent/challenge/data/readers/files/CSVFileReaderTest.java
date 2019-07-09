@@ -57,14 +57,6 @@ class CSVFileReaderTest {
 	}
 	
 	@Test
-	void testReadData() throws IOException {
-		CSVFileReader instance = new CSVFileReader(WEATHER_FILE);
-		instance.openSource();
-		instance.readData();
-		instance.closeSource();
-	}
-	
-	@Test
 	void testGetDataWithoutOpeningTheFile() throws IOException {
 		CSVFileReader instance = new CSVFileReader(WEATHER_FILE);
 		List<List<String>> result = instance.getData();
