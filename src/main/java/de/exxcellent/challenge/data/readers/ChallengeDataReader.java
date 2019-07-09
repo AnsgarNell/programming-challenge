@@ -14,15 +14,16 @@ import java.util.List;
  */
 public abstract class ChallengeDataReader {
     
-    public String source;
-    List<List<String>> data;
+    protected String source;
+    protected List<List<String>> data;
 
     public ChallengeDataReader(String source) {
         this.source = source;
-        List<List<String>> data = new ArrayList<>();
+        this.data = new ArrayList<>();
     }
     
     public abstract void openSource() throws Exception;
-    public abstract void readData();
+    public abstract void readData() throws Exception;;
+    public abstract void closeSource() throws Exception;
     public abstract List<List<String>> getData();
 }
