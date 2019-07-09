@@ -32,5 +32,10 @@ public class WebServiceDataReader extends ChallengeDataReader{
     public List<List<String>> getData() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+	@Override
+	public void closeSource() throws Exception {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.	
+	}
     
 }
