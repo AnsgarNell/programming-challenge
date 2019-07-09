@@ -23,7 +23,7 @@ public abstract class ChallengeDataReader {
     }
     
     public abstract void openSource() throws Exception;
-    public abstract void readData() throws Exception;;
+    public abstract void readData() throws Exception;
     public abstract void closeSource() throws Exception;
     public abstract List<List<String>> getData();
 }
