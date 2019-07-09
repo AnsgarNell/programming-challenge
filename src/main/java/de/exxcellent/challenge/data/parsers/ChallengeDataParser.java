@@ -5,7 +5,7 @@ import java.util.List;
 public abstract class ChallengeDataParser {
 	
 	protected List<List<String>> rawData;
-	protected List<List<String>> parsedData;
+	protected List<Object> parsedData;
 	
 	public void loadData(List<List<String>> rawData) throws NullPointerException {
 		if(rawData.isEmpty())
