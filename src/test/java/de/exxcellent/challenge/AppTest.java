@@ -1,7 +1,5 @@
 package de.exxcellent.challenge;
 
-import java.io.FileNotFoundException;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
