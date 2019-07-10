@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import de.exxcellent.challenge.data.WeatherData;
 
-public class WeatherDataParser extends ChallengeDataParser {
+public class WeatherDataParser extends ChallengeDataParser<WeatherData> {
 
 	@Override
 	public void parseRawData() throws NullPointerException, NumberFormatException {
@@ -16,9 +16,9 @@ public class WeatherDataParser extends ChallengeDataParser {
 		parsedData = new ArrayList<>();
 		
 		// Check if the rawData contains what we expect
-		if(rawData.get(0).get(0) != "Day") return;
-		if(rawData.get(0).get(1) != "MxT") return;
-		if(rawData.get(0).get(2) != "MnT") return;
+		if(!rawData.get(0).get(0).equals("Day")) return;
+		if(!rawData.get(0).get(1).equals("MxT")) return;
+		if(!rawData.get(0).get(2).equals("MnT")) return;
 		
 		for (int i = 1; i < rawData.size(); i++) {
 			
