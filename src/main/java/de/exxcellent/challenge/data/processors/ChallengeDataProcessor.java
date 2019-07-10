@@ -14,4 +14,7 @@ public abstract class ChallengeDataProcessor<T> {
 	}
 	
 	public abstract void processData() throws Exception;
+	public Object getResult() {
+		return output;
+	}
 }
