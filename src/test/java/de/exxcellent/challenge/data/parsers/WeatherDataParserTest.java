@@ -7,6 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import de.exxcellent.challenge.data.WeatherData;
+
 import static org.junit.Assert.*;
 
 class WeatherDataParserTest {
@@ -100,7 +102,7 @@ class WeatherDataParserTest {
 	@Test
 	void testGetNullParsedData() {
 		WeatherDataParser instance = new WeatherDataParser();
-		List<Object> result = instance.getParsedData();
+		List<WeatherData> result = instance.getParsedData();
 		assertTrue("The result data must be null", result == null);
 	}
 	
@@ -110,7 +112,7 @@ class WeatherDataParserTest {
 		List<List<String>> data = new ArrayList<>();	
 		instance.loadData(data);
 		instance.parseRawData();
-		List<Object> result = instance.getParsedData();
+		List<WeatherData> result = instance.getParsedData();
 		assertTrue("The result data must be empty", result.isEmpty());
 	}
 	
@@ -125,7 +127,7 @@ class WeatherDataParserTest {
 		WeatherDataParser instance = new WeatherDataParser();	
 		instance.loadData(data);
 		instance.parseRawData();
-		List<Object> result = instance.getParsedData();
+		List<WeatherData> result = instance.getParsedData();
 		assertFalse("The result data can not be empty", result.isEmpty());
 	}
 	
