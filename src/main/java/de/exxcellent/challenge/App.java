@@ -1,6 +1,8 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.data.parsers.FootballDataParser;
 import de.exxcellent.challenge.data.parsers.WeatherDataParser;
+import de.exxcellent.challenge.data.processors.FootballDataProcessor;
 import de.exxcellent.challenge.data.processors.WeatherDataProcessor;
 import de.exxcellent.challenge.data.readers.files.CSVFileReader;
 
@@ -34,7 +36,7 @@ public final class App {
 			break;
 			
 		case "--football":
-	        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
+	        String teamWithSmallestGoalSpread = getFootballResult(dataFile); // Your goal analysis function call …
 	        System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
 			break;
 
@@ -43,6 +45,26 @@ public final class App {
     		throw new IllegalArgumentException("Unexisting task type");
 		}
     }
+
+	private static String getFootballResult(String dataFile) {
+		CSVFileReader csvFileReader = new CSVFileReader(dataFile);
+		FootballDataParser footballDataParser = new FootballDataParser();
+		FootballDataProcessor footballDataProcessor = new FootballDataProcessor();
+		
+		try {
+			csvFileReader.openSource();
+			csvFileReader.readData();
+			footballDataParser.loadData(csvFileReader.getData());
+			footballDataParser.parseRawData();
+			footballDataProcessor.loadParsedData(footballDataParser.getParsedData());
+			footballDataProcessor.processData();
+			return String.valueOf(footballDataProcessor.getResult());
+			
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			return null;		
+		}
+	}
 
 	private static String getWeatherResult(String dataFile) {
 		
