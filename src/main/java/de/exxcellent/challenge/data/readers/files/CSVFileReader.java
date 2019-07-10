@@ -19,11 +19,12 @@ import java.util.List;
  */
 public class CSVFileReader extends ChallengeDataReader{
     
+	private final static String RESOURCES_FOLDER = "src/main/resources/de/exxcellent/challenge/";
     private static final String COMMA_DELIMITER = ",";
 	BufferedReader br;
 
-    public CSVFileReader(String source) {
-        super(source);
+    public CSVFileReader(String fileName) {
+        super(RESOURCES_FOLDER + fileName);
     }
 
     @Override

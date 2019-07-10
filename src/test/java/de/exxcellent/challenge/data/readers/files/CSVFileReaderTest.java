@@ -11,9 +11,8 @@ import org.junit.jupiter.api.Test;
 
 class CSVFileReaderTest {
 	
-	private static final String RESOURCES_FOLDER = "src/main/resources/de/exxcellent/challenge/";
-	private static final String WEATHER_FILE = RESOURCES_FOLDER + "weather.csv";
-	private static final String EMPTY_FILE = RESOURCES_FOLDER + "empty.csv";
+	private static final String WEATHER_FILE = "weather.csv";
+	private static final String EMPTY_FILE = "empty.csv";
 
 	@Test
 	void testOpenEmptySource() {
