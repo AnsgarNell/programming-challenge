@@ -8,12 +8,12 @@ public class WeatherDataParser extends ChallengeDataParser<WeatherData> {
 
 	@Override
 	public void parseRawData() throws NullPointerException, NumberFormatException {
+		parsedData = new ArrayList<>();
+		
 		if(rawData.isEmpty()) {
 			System.out.println("There is no raw data");
 			return;
 		}
-		
-		parsedData = new ArrayList<>();
 		
 		// Check if the rawData contains what we expect
 		if(!rawData.get(0).get(0).equals("Day")) return;
